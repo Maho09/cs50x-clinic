@@ -1,0 +1,75 @@
+{% extends "layout.html" %} {% block title %} finance {% endblock %} {% block
+main %}
+<div>
+  <h2>clinic's finance</h2>
+  <p> <strong>select date</strong> </p>
+  <div style="display: inline">
+    <form  style="display: inline" action="/finance_m" method="post">
+      <button class="btn btn-danger" type="submit">This month</button>
+    </form>
+    <form style="display: inline" action="/finance_y" method="post">
+      <button class="btn btn-danger" onclick="finance_y()" type="submit">
+        This year
+      </button>
+      <br>
+      <p style="margin-top: 3px; display: inline"><strong>Or</strong></p>
+      <br>
+    </form>
+    <form style="margin: 3px ; display: inline " action="/finance_special" method="post">
+      <label for="">certain day</label>
+      <input type="date" name="date" />
+      <button class="btn btn-danger"type="submit">
+        Select
+      </button>
+    </form>
+    <form style="margin: 3px ; display: inline " action="/finance_special_m" method="post">
+      <label for="">certain month</label>
+      <input type="text" placeholder="year-month" name="date_m" />
+      <button class="btn btn-danger" type="submit">
+        Select
+      </button>
+    </form>
+      <form style="margin: 3px ; display: inline " action="/finance_special_y" method="post">
+      <label for="">certain year</label>
+      <input type="text" placeholder="year" name="date_y" />
+      <button class="btn btn-danger" type="submit">
+        Select
+      </button>
+    </form>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>patient</th>
+        <th>procedure</th>
+        <th>date</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    {% for row in history %}
+    <tr>
+      <td>{{row["patient"]}}</td>
+      <td>{{row["procedure"]}}</td>
+      <td>{{row["date"]}}</td>
+      <td>{{row["price"]}}</td>
+    </tr>
+    {% endfor%}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Income</th>
+        </tr>
+        <tr>
+          {% if history %}
+          <td>{{total[0]["sum(price)"]}}</td>
+          {% else %}
+          <td>----</td>
+          {% endif %}
+        </tr>
+      </thead>
+    </table>
+  </table>
+
+  {%endblock%}
+</div>

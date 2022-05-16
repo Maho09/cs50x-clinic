@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block title %} procedures {% endblock %} {% block
+main %}
+<h2>Visits logs</h2>
+<form action="/pro" method="post">
+    <input type="text" name="patient" placeholder="Name">
+    <input type="text" name="operator" placeholder="operator">
+    <input type="text" name="procedure" placeholder="procedure">
+    <input type="text" name="comments" placeholder="comments">
+    <input type="date" name="date" placeholder="date">
+    <input type="text" name="price" placeholder="price">
+    <button class="btn btn-danger" type="submit">Add</button>
+  </form>
+  <div> <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>patient</th>
+        <th>operator</th>
+        <th>procedure</th>
+        <th>comments</th>
+        <th>date</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    {% for row in procedures %}
+    <tr>
+      <td>{{row["patient"]}}</td>
+      <td>{{row["operator"]}}</td>
+      <td>{{row["procedure"]}}</td>
+      <td>{{row["comments"]}}</td>
+      <td>{{row["date"]}}</td>
+      <td>{{row["price"]}}</td>
+    </tr>
+    {% endfor%}
+  </table></div>
+ {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %} {% block title %} patients {% endblock %} {% block
+main %}
+<h2>{{session["search"]}}</h2>
+    {% if patient_log %}
+    <table class="table table-striped">
+    <thead>
+      <tr>
+         <th>operator</th>
+        <th>procedure</th>
+        <th>comments</th>
+        <th>date</th>
+        <th>price</th>
+      </tr>
+    </thead>
+      {% for row in patient_log %}
+        <tr>
+          <td>{{row["operator"]}}</td>
+          <td>{{row["procedure"]}}</td>
+          <td>{{row["comments"]}}</td>
+          <td>{{row["date"]}}</td>
+          <td>{{row["price"]}}</td>    
+        </tr>
+      {% endfor%}
+  </table>
+      {% else %}
+        <strong><p style="color: red">patient not registered</p></strong>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block title %} appointments {% endblock %} {% block
+main %}
+<div>
+  <h2>Today's schedule</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>patient</th>
+        <th>hour</th>
+        <th>procedure</th>
+      </tr>
+    </thead>
+    {% for row in work %}
+    <tr>
+      <td>{{row["patient"]}}</td>
+      <td>{{row["hour"]}}</td>
+      <td>{{row["procedure"]}}</td>
+      <td><form action="/delete" method="post">
+        <input name="id" type="hidden" value="{{ row['id'] }}" />
+        <button class="btn btn-danger" type="submit"> Delete</button>
+      </form></td>
+      
+    </tr>
+    {% endfor%}
+  </table>
+  <h3>Or</h3>
+  <form action="/certain_date" method="post">
+    <label for="">Select date</label>
+    <input type="date" name="certain_day" />
+    <button class="btn btn-danger" type="submit">Search</button>
+  </form>
+</div>
+{% endblock %}

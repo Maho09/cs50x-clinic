@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block title %} appoimtments {% endblock %} {% block
+main %}
+<h2>{{certain_appointments[0]["day"]}}</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>patient</th>
+        <th>hour</th>
+        <th>procedure</th>
+      </tr>
+    </thead>
+    {% for row in certain_appointments %}
+    <tr>
+      <th>{{row["patient"]}}</th>
+      <th>{{row["hour"]}}</th>
+      <th>{{row["procedure"]}}</th>
+    </tr>
+    {% endfor%}
+  </table>
+  <h3> Or</h3>
+  <form action="/certain_date" method="post">
+    <label for="">Select date</label>
+    <input type="date" name="certain_day">
+    <button  class="btn btn-danger" type="submit">Search</button>
+  </form>
+
+{%endblock%}

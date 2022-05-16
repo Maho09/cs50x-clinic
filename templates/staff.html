@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block title %} my staff {% endblock %} {% block
+main %}
+<h2>Staff</h2>
+<form action="/staff" method="post">
+    <input type="text" name="Name" placeholder="Name">
+    <input type="text" name="Role" placeholder="Role">
+    <input type="text" name="Age" placeholder="Age">
+    <input type="text" name="Salary" placeholder="Salary">
+    <button class="btn btn-danger" type="submit">Add</button>
+  </form>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Age</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    {% for row in staff %}
+    <tr>
+      <td>{{row["name"]}}</td>
+      <td>{{row["Role"]}}</td>
+      <td>{{row["Age"]}}</td>
+      <td>{{row["salary"]}}</td>
+    </tr>
+    {% endfor%}
+  </table>
+  
+  {% endblock %}
