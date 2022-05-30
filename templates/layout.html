@@ -22,8 +22,7 @@
         {% if session["user_id"] %}
         <form action="/search" method="post">
           <input
-            class="form-control mx-auto w-auto"
-            style="margin-top: 1px"
+            style="margin-top: 1px; "
             type="search"
             name="search"
             required
@@ -31,7 +30,7 @@
           />
           <button
             class="btn btn-outline-secondary btn-sm"
-            style="font-size: 1rem; color: rgb(207, 200, 200); height: 2rem"
+            style="font-size: 1rem; color: rgb(207, 200, 200); height: auto;"
             type="submit"
           >
             search
