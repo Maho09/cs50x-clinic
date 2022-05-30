@@ -50,10 +50,12 @@ img {
   margin-top: 30px;
 }
 .login {
-  width: 222px;
+  width: auto;
   float: right;
   border: 0.5px solid rgba(168, 173, 173, 0.863);
-  background-color: rgb(231, 227, 227);
+  background-color: rgba(231, 227, 227, 0.705);
+  border-radius: 1%;
+  align-items: center;
 }
 .inp {
   padding: 5px;

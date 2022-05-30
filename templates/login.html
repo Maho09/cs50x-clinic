@@ -9,30 +9,31 @@ main %}
         </div></div>
     </div>
     <div class="col box1">
-      <div class="p-3"><form class="login" action="/login" method="post">
-          <div class="login">
+      <div class="p-3">
+        <form class="login inp" action="/login" method="post">
+          <div>
             <div class="inp">
-              <input type="text" id="username" name="username" placeholder="Username"/>
-              <p>Username</p>
-              <input type="password" id="password" name="password" placeholder="Password"/>
-              <p>password</p>
+              <input type="text" class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username"/>
+              <br>
+              <input type="password" class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password"/>
             </div>
-            <button class="btn btn-danger" style="margin-bottom: 20px">
+            <button class="btn btn-danger" >
               Log in
             </button>
           </form>
-            <br />
+          <hr  style="width: 150px; margin: 10px; margin-left: 30px;">
             New User?
-            <br />
             <form action="/Sign-up" method="get">
               <button
                 class="btn btn-danger"
                 style="margin-bottom: 20px"
-                type="submit"
-              >
+                type="submit">
                 sign-up
               </button>
-            </form></div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
