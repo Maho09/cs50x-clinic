@@ -1,8 +1,3 @@
-from curses.ascii import FF
-import os
-from tracemalloc import start
-from attr import fields
-
 from cs50 import SQL
 from flask import Flask, flash, redirect, url_for, render_template, request, session
 from flask_session import Session
@@ -247,7 +242,7 @@ def change():
         if not password:
             return Error("NEW Password REQUIRED")
         hashed1 = generate_password_hash(password)
-        
+
         old = db.execute("SELECT * FROM users WHERE username = ?", session["user_name"])
         if check_password_hash(old[0]["password"], password):
             return Error("don't use the same old password")
